@@ -1,0 +1,34 @@
+We develop an interactive piece-level code examination tool, called CodeGlass.
+A code piece is defined as any of consecutive lines in code.
+It can be a single line, function, class or even the entire code in a file.
+CodeGlass extracts the revision history on the selected code piece from commit logs.
+Its interface then provides an overview that shows past pull requests associated with the selected code piece which contain descriptions, commits, and review comments.
+
+
+CodeGlass also allows developers to examine past pull requests and commits on any line of code, not limited to meaningful chunks (e.g., classes or functions).
+This capability is useful when developers need to investigate large classes and functions because they can have freedom to break down into smaller portions for their examination.
+
+% GitHub displays a source code in a file in the red frame in Figure~\ref{fig:WebInterface}.
+% CodeGlass provides ``Fetch'' button~(i.e., blue frame in Fig.~\ref{fig:WebInterface}) and a feature that the user can select codes by pointer~(i.e., green frame in Fig.~\ref{fig:WebInterface}).
+Figure~\ref{fig:WebInterface} shows the CodeGlass interface.
+The user specifies a code piece on which she desires to read descriptions and review comments of past pull requests simply by a mouse drag~(highlighted in light green in Figure~\ref{fig:WebInterface}).
+CodeGlass displays a series of relevant pull requests in the chronological order as shown in Figure~\ref{fig:WebInterface}a.
+Each pull request is summarized in a separate box ((1) in Figure~\ref{fig:WebInterface}a).
+Each summary includes the title of a pull request, its ID, and the numbers of commits, lines and files changed, and comments.
+It also contains links to the original pull request page, the diff summary, review comments, and the author's page with which users can further investigate details.
+In addition, CodeGlass can also suggest other potentially-relevant commits if there exists any ((2) in Figure~\ref{fig:WebInterface}a).
+When clicking one of them, the user can view the version associated with the selected commit and further investigate how code has been developed.
+When the user clicks the title of a pull request summary, CodeGlass presents its review comments ((3) in Figure~\ref{fig:WebInterface}b).
+
+      
+The current CodeGlass system takes a server-client implementation.
+The CodeGlass interface is implemented as a Google Chrome extension.
+When the user selects a code piece, the interface sends the repository name, file name, and line numbers of the selected code piece to the server.
+The server then estimates how the given code piece has been changed with the DiffTrack algorithm (explained later).
+It extracts commits in which the selected code piece had revisions. 
+The server then obtains pull requests containing these commits through GitHub API, and sends them back to the interface.
+
+Our current prototype would function for any public repository on GitHub because the backend algorithm is language-agnostic as we explain later.
+With proper permission settings, CodeGlass would be available even for private repositories.
+% There are 57 million active repositories as of April 2017\footnote{\url{https://github.com/blog/2345-celebrating-nine-years-of-\\github-with-an-anniversary-sale}}.
+

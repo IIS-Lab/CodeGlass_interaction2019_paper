@@ -1,0 +1,47 @@
+\section{考察}
+\subsection{ユーザ評価の結果に関する議論}
+
+アルゴリズムの評価に関する考察は\ref{section:Piece_level_Diff_Backtrack_Algorithm}章にて議論したため，ここではユーザ評価の結果について考察を行う．
+学生によるCodeGlassの定量的評価により，RationaleとHistoryに関する情報収集の再現率と，ExecutionとHistoryに関する情報収集の自信度に対して，CodeGlassの有意な効果が認められた．
+一方で，全ての情報の分類における適合率に対しては，CodeGlassの有意な効果は見つけられなかった．
+この原因の一つとして，実験参加者らは確度の高い情報のみをドキュメントに記した可能性がある．
+
+
+また，実験結果における再現率が総じて低いことが確認された．
+この原因の一つとして，タスクに20分という時間制限を設けたことが挙げられる．
+時間制限により実験参加者らは，理解するのが簡単な箇所からドキュメント作成を行ったと考えられる．
+
+
+
+% As we already discussed the algorithm evaluation results before, we mainly examine results in our user study and informal expert review.
+% The quantitative results confirm that CodeGlass fully outperformed in history understanding.
+% Our user evaluation showed that CodeGlass significantly improves the recall of implementation rationale understanding, but not precision.
+% One possible reason was that implementation rationales can be inferred to some extent if execution was well understood.
+% As a result, the reference condition might have shown comparable precision results.
+% Because we observed a difference in recall, we conclude that our CodeGlass showed partial outperformance in rationale understanding.
+
+
+
+% Recall was rather low across the conditions.
+% One possible explanation is that our user study had time limits to make the evaluation tractable.
+% Therefore, the participants were able to only document items that were easy to find.
+% Nevertheless, they successfully achieved high precision in all three information categories with CodeGlass, confirming its benefit.
+
+
+% The confidence scores showed large differences in the history understanding.
+% 93.5\% and 90.8\% of the documented items by participants had confidence scores of 50 and above across all the metrics in the reference and CodeGlass condition, respectively.
+% This suggests that the participants tended to document only items on which they had a certain level of confidence during the study.
+% The confidence scores for history understanding in the reference condition was an exception because many participants simply failed to identify any item.
+% This result also confirms the advantages of CodeGlass.
+
+
+8人のプログラマを対象としたインタビューでは，CodeGlass特有の有用性を明らかにすることができた．
+特にIT企業といった専門的な組織における開発では，コードレビューを円滑に行うためにGitHubのプルリクエストが日常的に利用されている．
+2人の実験参加者（PD5とPD8）は，CodeGlassを開発組織に導入することで，プルリクエストの説明文をより詳細に書く習慣を作ることができるかもしれないと述べた．
+この利点は専門的な組織におけるCodeGlassの新たな有用性を示唆している．
+
+% Our informal expert review uncovered unique advantages of CodeGlass.
+% As pull requests are heavily used in professional development (e.g., for code review), all interviewees expressed multiple use scenarios of CodeGlass.
+% Two participants commented that CodeGlass could encourage developers to write detailed pull requests.
+% These results imply a unique potential of CodeGlass in professional development scenarios.
+

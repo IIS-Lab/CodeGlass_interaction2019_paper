@@ -1,0 +1,247 @@
+%%
+%% 研究報告用スイッチ
+%% [techrep]
+%%
+%% 欧文表記無しのスイッチ(etitle,jkeyword,eabstract,ekeywordは任意)
+%% [noauthor]
+%%
+
+% \documentclass[submit,techrep]{ipsj}
+\documentclass[submit,techrep,noauthor]{ipsj}
+
+% for Overleaf
+\usepackage[ipaex]{pxchfon}
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{latexsym}
+
+\def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
+\def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
+% \def\|{\verb|}
+% \def\|{\verb}
+
+% Load basic packages
+\usepackage{balance}       % to better equalize the last page
+\usepackage{graphics}      % for EPS, load graphicx instead 
+\usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+\usepackage{txfonts}
+\usepackage{mathptmx}
+% \usepackage[pdflang={en-US},pdftex]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{here}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{url}
+\usepackage{subfig}
+
+% Some optional stuff you might like/need.
+\usepackage{microtype}        % Improved Tracking and Kerning
+% \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
+\usepackage{ccicons}          % Cite your images correctly!
+% \usepackage[utf8]{inputenc} % for a UTF8 editor only
+
+% % Load basic packages
+% \usepackage{balance}       % to better equalize the last page
+% \usepackage{graphics}      % for EPS, load graphicx instead 
+% \usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+% \usepackage{txfonts}
+% \usepackage{mathptmx}
+% \usepackage[pdflang={en-US},pdftex]{hyperref}
+% \usepackage{color}
+% \usepackage{booktabs}
+% \usepackage{textcomp}
+% \usepackage{here}
+% \usepackage{multirow}
+% \usepackage{colortbl}
+
+% Some optional stuff you might like/need.
+\usepackage{microtype}        % Improved Tracking and Kerning
+% \usepackage[all]{hypcap}    % Fixes bug in hyperref caption linking
+\usepackage{ccicons}          % Cite your images correctly!
+
+% myquote command
+\renewenvironment{quote}[1][0.04\linewidth]
+  {\list{}{\leftmargin=#1\rightmargin=#1}\item\relax}{\endlist}
+\newcommand{\myquote}[2]
+{
+\begin{quote}
+\textit{#1} [#2]
+\end{quote}
+}
+
+% for comments
+\usepackage{color}
+\definecolor{orange}{RGB}{255,127,0}
+\definecolor{limegreen}{RGB}{50, 205, 50}
+\definecolor{violet}{RGB}{148,0,211}
+\definecolor{red}{RGB}{255,0,0}
+\definecolor{blue}{RGB}{0,0,255}
+\newcommand{\xxx}{{\textcolor{red}{\bf XXX }}}
+\newcommand{\XXX}{{\textcolor{red}{\bf XXX }}}
+
+% make COMMENTS true to enable comments
+\newif\ifCOMMENTS
+\COMMENTStrue
+
+\ifCOMMENTS
+\newcommand{\koji}[2]{\textcolor{violet}{#1\bf{ (Koji: #2)}}}
+\newcommand{\shibato}[2]{\textcolor{blue}{#1\bf{ (shibato: #2)}}}
+\newcommand{\miya}[2]{\textcolor{limegreen}{#1\bf{ (miyazaki: #2)}}}
+\newcommand{\masaki}[2]{\textcolor{red}{#1\bf{ (Masaki: #2)}}}
+\newcommand{\sakaguchi}[2]{\textcolor{orange}{#1\bf{ (Sakaguchi: #2)}}}
+\newcommand{\matsui}[2]{\textcolor{orange}{#1\bf{ (Matsui: #2)}}}
+\newcommand{\asahi}[2]{\textcolor{orange}{#1\bf{ (Asahi: #2)}}}
+\else
+\newcommand{\koji}[2]{#1}
+\newcommand{\shibato}[2]{#1}
+\newcommand{\miya}[2]{#1}
+\newcommand{\masaki}[2]{#1}
+\newcommand{\sakaguchi}[2]{#1}
+\newcommand{\matsui}[2]{#1}
+\newcommand{\asahi}[2]{#1}
+\fi
+
+\setcounter{巻数}{53}%vol53=2012
+\setcounter{号数}{10}
+\setcounter{page}{1}
+
+
+\begin{document}
+
+
+\title{CodeGlass: GitHubのプルリクエストを活用したコード断片のインタラクティブな調査支援システム}
+
+% \etitle{CodeGlass: Interactive Piece-level Code Examination Using GitHub Pull Requests}
+
+\affiliate{UT}{東京大学\\
+The University of Tokyo\\
+7-3-1 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan}
+
+
+% \paffiliate{JU}{情報処理大学\\
+% Johoshori Uniersity}
+
+\author{柴藤大介}{Daisuke Shibato}{UT}[shibato@iis-lab.org]
+\author{有薗拓也}{Takuya Arizono}{UT}[arizono@iis-lab.org]
+\author{宮崎章太}{Shota Miyazaki}{UT}[miyazaki@iis-lab.org]
+\author{矢谷浩司}{Koji Yatani}{UT}[koji@iis-lab.org]
+
+\begin{abstract}
+ソフトウェア開発においてソースコードの理解は必要不可欠である．
+特に，実際の開発においてはコードの一部分（コード断片）の理解が必要となることが多い．
+我々が行ったインタビュー調査では，GitHubのプルリクエストの説明文とコメントに，コード理解において有用な情報が含まれていることが明らかとなった．
+しかし既存のシステムでは，プルリクエストがコード断片の理解支援のためには十分に活用されていない．
+そこで我々は，ユーザが選択したコード断片に関連する過去のプルリクエストを抽出し，ユーザに提供するCodeGlassを開発した．
+CodeGlassでは，プルリクエストの説明文を解析し，実装内容や開発背景に関する文章をインターフェース上で強調して表示することが可能となっている．
+CodeGlassのアルゴリズムにより，選択されたコード断片が過去のバージョンにおいて分裂していた場合にも，関連する過去のプルリクエストをユーザに提供することができる．
+我々が行ったCodeGlassの定量的および定性的評価の結果，コード断片の理解や専門的用途におけるCodeGlassの有用性が確認された．
+% アルゴリズム評価を行った結果，高い精度でコード断片を追跡できることが明らかとなった．
+% また，ユーザ評価を行った結果，コードが開発された理由と変更履歴に関する情報収集において，CodeGlassは有意に有用であった．
+% さらに，プログラマによる定性的評価により，専門的な用途におけるCodeGlassの有用性が明らかとなった．
+\end{abstract}
+
+
+\begin{jkeyword}
+コード理解，コード断片，GitHub，プルリクエスト，git
+\end{jkeyword}
+
+% \begin{eabstract}
+% Understanding source code is fundamental in software development.
+% Developers frequently need to understand a portion of code (or a code piece) in realistic development.
+% Our formative study found that descriptions and review comments in pull requests on GitHub have useful information for code understanding; however, they are underutilized for that purpose.
+% Our system, CodeGlass, shows pull requests and review comments associated with the user-selected code piece (a portion of code).
+% The backend algorithm we build based on the LHDiff method identifies past commits that include changes on the given code piece.
+% It then returns a series of pull requests containing these commits.
+% Our algorithm evaluation reveals that our backtrack can achieve high precision and recall to backtrack changes on a code piece and extract related commits.
+% Our user study also shows that CodeGlass was effective to support comprehension related to implementation rationales and development history about a code piece.
+% Informal expert review uncovers different potential benefits of CodeGlass in professional development environments.
+% \end{eabstract}
+
+% \begin{ekeyword}
+% code understanding, code piece, GitHub, pull request, git
+% \end{ekeyword}
+
+\maketitle
+
+\input{_contents/2.introduction}
+
+\input{_contents/3.related_work}
+
+\input{_contents/4.formative_study}
+
+\input{_contents/5.codeglass}
+
+\input{./_contents/arizono.tex}
+
+\input{_contents/6-0.backtrack.tex}
+
+\input{_contents/6-1.algorithm_evaluation.tex}
+
+\input{_contents/7.evaluation.tex}
+
+\input{_contents/9.expert_review.tex}
+
+\input{_contents/8.discussion.tex}
+
+\input{_contents/_limitation.tex}
+
+\input{_contents/_conclusion.tex}
+
+% %1
+% \section{はじめに}
+
+% \input{./contents/1.intro}
+
+
+
+% %2
+% \section{関連研究}
+% \input{./contents/2.related_work}
+
+
+% %3
+% \section{Formative Studies}
+% \input{./contents/3.formative_studies}
+
+
+% %4
+% \section{Interactive Piece-level Code Examination}
+% \input{./contents/4.interface}
+
+% %5
+% \section{Piece-level Diff Backtrack Algorithm}
+% \input{./contents/5.backtrack_alg}
+
+% %Azoson's work
+% \section{アゾソンがやったこと}
+% \input{./contents/arizono}
+
+
+% %6
+% \section{Quantitative Algorithm Evaluation}
+% \input{./contents/6.algorithm_evaluation}
+
+
+% %7
+% \section{Quantitative User Evaluation}
+% \input{./contents/7.user_evaluation}
+
+% %8
+% \section{Discussion}
+% \input{./contents/8.discussion.tex}
+
+% %9
+% \section{Informal Expert Review}
+% \input{./contents/9.expert_review.tex}
+
+
+% % Conclusion
+% \input{./contents/_others}
+
+% References
+\bibliographystyle{ipsjsort}
+\bibliography{ref}
+
+\end{document}

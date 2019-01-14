@@ -1,0 +1,27 @@
+\section{Limitations}
+Although our results suggest a strong potential of CodeGlass and DiffTrack, there are several limitations in our study.
+An evaluation with a larger dataset is necessary to investigate the true performance of DiffTrack.
+The current DiffTrack implementation generally takes a couple of seconds to identify code pieces in past pull requests.
+Our lab study participants did not mention noticeable delays by the system.
+Algorithm optimization and speed performance evaluations are out of our main scope though they are important future work.
+%Future work should investigate how to optimize its process.
+
+CodeGlass would not be effective if a project does not regularly use pull requests or developers do not write proper descriptions in commits.
+Prior work has investigated a tool to support developers to write commit descriptions~\cite{ChangeScribe}, which can co-exist with CodeGlass.
+Because information provided through CodeGlass is useful for code comprehension, our system could also encourage a practice of using pull requests and writing detailed comments from a different perspective. 
+
+DiffTrack does not currently support backtracking at a word- or character-level of granularity.
+Such a capability would enable new use scenarios (e.g., looking into the implementation history and reasons for a particular variable).
+However, very accurate syntactic understanding would be necessary.
+Future work should investigate how AST-based methods~\cite{GumTree, Change_Distilling} could support finer-level code examination.
+
+\section{Conclusion}
+
+We presented CodeGlass, an interface that provides pull requests and their review comments associated with a code piece.
+%We also developed a piece-level diff backtrack algorithm, called DiffTrack.
+Given a code piece, our DiffTrack algorithm identifies its location in an older version even if changes were made.
+It precisely and accurately extracts a series of commits that include changes on the chosen code piece.
+CodeGlass then shows a series of pull requests containing these commits for supporting user's comprehension.
+Our quantitative evaluation on the DiffTrack algorithm shows high precision and recall results for various types of revisions.
+In addition, our user study confirmed that CodeGlass was most useful to obtain development rationale and history about code pieces.
+Expert reviews confirmed potential advantages of CodeGlass in professional use.

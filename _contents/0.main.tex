@@ -1,0 +1,168 @@
+\documentclass[conference]{IEEEtran}
+
+\ifCLASSINFOpdf
+% \usepackage[pdftex]{graphicx}
+% declare the path(s) where your graphic files are
+% \graphicspath{{../pdf/}{../jpeg/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+% \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+% or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+% will default to the driver specified in the system graphics.cfg if no
+% driver is specified.
+% \usepackage[dvips]{graphicx}
+% declare the path(s) where your graphic files are
+% \graphicspath{{../eps/}}
+% and their extensions so you won't have to specify these with
+% every instance of \includegraphics
+% \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+%% Use packages---------------------------------------------
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{here}
+\usepackage{multirow}
+%% ---------------------------------------------------------
+
+%%%%%%%%%%%%%%%%% IIS Lab macro %%%%%%%%%%%%%%%%%
+% myquote command
+\renewenvironment{quote}[1][0.04\linewidth]
+{\list{}{\leftmargin=#1\rightmargin=#1}\item\relax}{\endlist}
+\newcommand{\myquote}[2]
+{
+\begin{quote}
+\textit{#1} [#2]
+\end{quote}
+}
+
+% for comments
+\usepackage{color}
+\definecolor{orange}{RGB}{255,127,0}
+\definecolor{limegreen}{RGB}{50, 205, 50}
+\definecolor{violet}{RGB}{148,0,211}
+\newcommand{\xxx}{{\textcolor{red}{\bf XXX }}}
+\newcommand{\XXX}{{\textcolor{red}{\bf XXX }}}
+
+% make COMMENTS true to enable comments
+\newif\ifCOMMENTS
+\COMMENTStrue
+
+\ifCOMMENTS
+\newcommand{\koji}[2]{\textcolor{violet}{#1\bf{ (Koji: #2)}}}
+\newcommand{\shibato}[2]{\textcolor{blue}{#1\bf{ (Shibato: #2)}}}
+\newcommand{\takuma}[2]{\textcolor{limegreen}{#1\bf{ (Takuma: #2) }}}
+\newcommand{\interview}[2]{\textcolor{crimson}{#1\bf{ (Interview: #2) }}}
+\newcommand{\ariga}[2]{\textcolor{bittersweet}{#1\bf{ (Ariga: #2) }}}
+\newcommand{\shimoo}[2]{\textcolor{bluegreen}{#1\bf{ (Shimoo: #2) }}}
+\newcommand{\miya}[2]{\textcolor{green}{#1\bf{ (Miya: #2) }}}
+\newcommand{\arissa}[2]{\textcolor{orange}{#1\bf{ (Arissa: #2) }}}
+\else
+\newcommand{\koji}[2]{#1}
+\newcommand{\shibato}[2]{#1}
+\newcommand{\takuma}[2]{#1}
+\newcommand{\interview}[2]{#1}
+\newcommand{\shimoo}[2]{#1}
+\newcommand{\miya}[2]{#1}
+\newcommand{\arissa}[2]{#1}
+\fi
+
+\makeatletter
+\def\Hline{
+  \noalign{\ifnum0=`}\fi\hrule \@height 4.\arrayrulewidth \futurelet
+   \reserved@a\@xhline}
+\makeatother
+
+\setlength\intextsep{2pt}
+\setlength\textfloatsep{2pt}
+
+%%%%%%%%%%%%%%%%% IIS Lab macro end %%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\title{CodeGlass: Interactive Piece-level Code Examination Using GitHub Pull Requests}
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+% \author{
+% \IEEEauthorblockN{Leave Authors Anonymous}
+% \IEEEauthorblockA{for Submission\\
+% City, Country\\
+% e-mail address}
+% \and
+% \IEEEauthorblockN{Leave Authors Anonymous}
+% \IEEEauthorblockA{for Submission\\
+% City, Country\\
+% e-mail address}
+% \and
+% \IEEEauthorblockN{Leave Authors Anonymous}
+% \IEEEauthorblockA{for Submission\\
+% City, Country\\
+% e-mail address}
+% }
+
+
+\maketitle
+
+\input{1.abstract}
+
+\IEEEpeerreviewmaketitle
+
+\input{2.introduction}
+
+\input{3.related_work}
+
+\input{4.formative_study}
+
+\input{5.codeglass}
+
+\input{6-0.backtrack.tex}
+
+\input{6-1.algorithm_evaluation.tex}
+
+\input{7.evaluation.tex}
+
+\input{9.expert_review.tex}
+
+\input{8.discussion.tex}
+
+\input{_limitation.tex}
+
+\input{_conclusion.tex}
+
+% \section*{Acknowledgment}
+
+% The authors would like to thank...
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+
+% that's all folks
+\end{document}

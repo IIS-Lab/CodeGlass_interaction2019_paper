@@ -1,0 +1,326 @@
+\section{定量的ユーザ評価実験}
+\label{section:user-study}
+% \section{Comparative User Evaluation}
+
+
+% We next conducted a user evaluation to investigate how CodeGlass can support comprehension of code pieces. 
+
+%\subsection{実験内容}
+% \subsection{Experiment Design}
+
+% Existing tools already support Contributor and Usage information seeking (e.g., git-blame to identify who made a particular change).
+% Therefore, we decided to mainly examine the user performance of finding information for \textbf{Execution}, \textbf{Rationale}, and \textbf{History} in our evaluation.
+% These information categories were also found important by the professional developers in our formative study.
+
+% \begin{table*}[t]
+%     \centering
+%      \caption{Accuracy performance and confidence scores in the user evaluation. Values in parentheses represent the standard deviations.}
+%     \label{table:experiment_result}
+%     \begin{tabular}{c||ccc|ccc} \Hline
+%     \multirow{2}{*}{Category} & \multicolumn{3}{c|}{\textbf{without CodeGlass}} & \multicolumn{3}{c}{\textbf{with CodeGlass}} \\
+%      & Precision & Recall & Confidence & Precision & Recall & Confidence \\ \hline \hline
+%      Execution & 0.77 (0.12) & 0.46 (0.08) & 74.5 (9.67) & 0.80 (0.18) & 0.49 (0.13) & 79.6 (7.14) \\
+%      Rationale & 0.55 (0.38) & 0.14 (0.09) & 63.9 (28.1) & 0.79 (0.21) & 0.29 (0.06) & 78.3 (11.6) \\
+%      History & 0.13 (0.35) & 0.01 (0.02) & 6.25 (17.7) & 0.88 (0.13) & 0.16 (0.01) & 66.6 (6.25) \\ \Hline
+%     \end{tabular}
+% \end{table*}
+
+\begin{table*}[t]
+    \centering
+     \caption{適合率，再現率，自信度の平均．但し，括弧内は標準偏差である．3つの条件は，GitHub上のインタフェース（non-CG），開発背景と理由の並べ替え機能がないCodeGlass（CG-），並べ替え機能を持つCodeGlass（CG）である．}
+    \label{table:experiment_result}
+    \begin{tabular}{c||ccc|ccc|ccc}  \Hline
+      \multirow{2}{*}{}  & \multicolumn{3}{c|}{ \textbf{non-CG} } & \multicolumn{3}{c|}{ \textbf{CG-} } & \multicolumn{3}{c}{ \textbf{CG} } \\
+      & 適合率 & 再現率 & 自信度 & 適合率 & 再現率 & 自信度 & 適合率 & 再現率 & 自信度 \\ \hline \hline
+      Execution & 0.93  (0.09) & 0.45  (0.18) & 61.1 (10.7) & 0.87 (0.13) & 0.44 (0.23) & 66.4 (11.7) & 0.90 (0.11) & 0.53 (0.24) & 77.5 (10.9) \\
+      Rationale & 0.86 (0.30) & 0.17 (0.09) & 63.7 (10.4) & 0.95 (0.11) & 0.31 (0.12) & 63.4 (10.5) & 0.89 (0.15) & 0.34 (0.17) & 66.8 (8.07) \\
+      History & 0.08 (0.29) & 0.01 (0.04) & 30.7 (16.9) & 0.50 (0.52) & 0.14 (0.12) & 58.9 (19.3) & 0.33 (0.49) & 0.12 (0.15) & 63.7 (24.7) \\ \Hline
+      \end{tabular}
+\end{table*}
+
+% \begin{table}[t]
+%     \centering
+%     \caption{Paired t tests on user evaluation performance results.}
+%     \label{table:stats_result}
+%     \begin{tabular}{rl||ccc}
+%     \multicolumn{2}{l||}{Metric} & $t(7)$ & $p$ & Cohen's $d$ and 95\%CI \\ \hline \hline
+%     \multicolumn{2}{l||}{\textbf{Execution}} & & & \\
+%     & Precision & 0.76 & \textit{n.s.}%0.47
+%     & 0.27 [-0.44, 0.97] \\
+%     & Recall & 0.74 & \textit{n.s.}%0.48 
+%     & 0.26 [-0.45, 0.96] \\
+%     & Confidence & 1.77 & \textit{n.s.}%0.12 
+%     & 0.63 [-0.16, 1.37] \\ \hline
+%     \multicolumn{2}{l||}{\textbf{Rationale}} & & & \\
+%     & Precision & 1.79 & \textit{n.s.}%0.12 
+%     & 0.63 [-0.15, 1.38] \\
+%     & Recall & 3.55 & < 0.01 & 1.25 [0.28, 2.18] \\
+%     & Confidence & 1.57 & \textit{n.s.}%0.16 
+%     & 0.55 [-0.21, 1.29]\\ \hline
+%     \multicolumn{2}{l||}{\textbf{History}} & & & \\
+%     & Precision & 4.58 & < 0.01 & 1.62 [0.52, 2.68] \\
+%     & Recall & 5.97 & < 0.001 & 2.11 [0.81, 3.38] \\
+%     & Confidence & 5.41 & < 0.001 & 1.91 [0.69, 3.09] \\ 
+%     \end{tabular}
+    
+% \end{table}
+
+% \begin{table}[t]
+%     \centering
+%     \caption{反復測定の一元配置分散分析の結果．}
+%     \label{table:stats_result}
+    
+%     \begin{tabular}{ccccc} \Hline
+%         \multicolumn{2}{c}{ 要因 } & df & $F$ & $p$ \\ \hline \hline
+        
+%         \multicolumn{5}{l}{ \textbf{Execution} - 適合率 } \\
+%         	& CodeGlass & 22 & 1.71 & 0.2 \\  \hline
+%         \multicolumn{5}{l}{ \textbf{Execution} - 再現率 } \\
+%         	& CodeGlass & 22 & 0.47 & 0.63 \\  \hline
+%         \multicolumn{5}{l}{ \textbf{Execution} - 自信度 } \\
+%         	& CodeGlass & 22 & 4 & $<.005$ \\  \hline
+%         \multicolumn{5}{l}{ \textbf{Rationale} - 適合率 } \\
+%         	& CodeGlass & 22 & 0.73 & 0.49 \\  \hline
+%         \multicolumn{5}{l}{ \textbf{Rationale} - 再現率 } \\
+%         	& CodeGlass & 22 & 6.51 & $<.005$ \\  \hline
+%         \multicolumn{5}{l}{ \textbf{Rationale} - 自信度 } \\
+%         	& CodeGlass & 22 & 1.17 & 0.33 \\  \hline
+%         \multicolumn{5}{l}{ \textbf{History} - 適合率 } \\
+%         	& CodeGlass & 22 & 2.71 & 0.09 \\  \hline
+%         \multicolumn{5}{l}{ \textbf{History} - 再現率 } \\
+%         	& CodeGlass & 22 & 4.18 & $<.005$ \\  \hline
+%         \multicolumn{5}{l}{ \textbf{History}- 自信度 } \\
+%         	& CodeGlass & 22 & 9.68 & $<.005$ \\  \Hline
+        
+%     \end{tabular}
+% \end{table}
+
+
+\begin{table}[t]
+
+    \centering
+    \caption{反復測定の一元配置分散分析の結果．}
+    \label{table:stats_result}
+    
+\hspace*{-0.23cm}    
+\begin{tabular}
+    {@{\hspace{1mm}} >{\raggedright\arraybackslash}p{10.5mm} || % 
+%     >{\centering\arraybackslash}p{3.0mm} | %
+    >{\centering\arraybackslash}p{2.9mm}%
+    >{\centering\arraybackslash}p{2.9mm}%
+    >{\centering\arraybackslash}p{4.0mm} | %
+    >{\centering\arraybackslash}p{2.9mm}%
+    >{\centering\arraybackslash}p{6.0mm}% OK
+    >{\centering\arraybackslash}p{4.0mm} | %
+    >{\centering\arraybackslash}p{2.9mm}%
+    >{\centering\arraybackslash}p{7.6mm}% OK
+    >{\centering\arraybackslash}p{2.9mm} %
+    }  \Hline
+    
+& \multicolumn{3}{c|}{ 適合率 } & \multicolumn{3}{c|}{ 再現率 } & \multicolumn{3}{c}{ 自信度 } \\
+& $F$ & $p$ & $\eta^2$ & $F$ & $p$ & $\eta^2$ & $F$ & $p$ & $\eta^2$ \\  \hline \hline
+Execution & 1.71 & .20 & 0.06 & 0.47 & .63 & 0.03 & 4.00 & < .05 & 0.22 \\
+Rationale & 0.73 & .49 & 0.04 & 6.51 & < .01 & 0.27 & 1.17 & .33 & 0.06 \\
+History & 2.71 & .09 & 0.14 & 4.18 & < .05 & 0.22 & 9.68 & < .001 & 0.40 \\ \Hline
+
+\end{tabular}
+
+
+    
+\end{table}
+
+
+
+% \begin{table}[t]
+%     \centering
+%     \caption{\shibato{Multi-level regression analysis results.}{VL/HCCまでの結果です．参考までに表示しておきます}}
+%     \label{table:stats_result}
+%     \begin{tabular}{clccccc} \Hline
+%     \multicolumn{2}{c}{Factor} &  Estimated & $SE$ & df & $t$ & $p$\\ \hline \hline
+%     \multicolumn{7}{l}{\textbf{Execution} - Precision} \\
+%     & (Intercept) & 0.770 & 0.053 & 7 & 14.46 & $<.001$ \\
+% 	& CodeGlass & 0.034 & 0.044 & 7 & 0.76 & 0.47 \\ \hline
+%     \multicolumn{7}{l}{\textbf{Execution} - Recall} \\
+%     & (Intercept) & 0.456 & 0.039 & 7 & 11.62 & $<.001$ \\
+% 	& CodeGlass & 0.037 & 0.049 & 7 & 0.74 & 0.48 \\ \hline
+%     \multicolumn{7}{l}{\textbf{Execution} - Confidence} \\
+%     & (Intercept) & 74.50 & 3.01 & 7 & 24.79 & $<.001$ \\
+% 	& CodeGlass & 5.044 & 2.85 & 7 & 1.77 & 0.12 \\ \hline
+%     \multicolumn{7}{l}{\textbf{Rationale} - Precision} \\
+%     & (Intercept) & 0.548 & 0.108 & 7 & 5.06 & $<.001$ \\
+% 	& CodeGlass & 0.246 & 0.137 & 7 & 1.80 & 0.12 \\ \hline
+%     \multicolumn{7}{l}{\textbf{Rationale} - Recall} \\
+%     & (Intercept) & 0.144 & 0.027 & 7 & 5.32 & $<.01$ \\
+% 	& CodeGlass & \textbf{0.149} & \textbf{0.038} & 7 & 3.87 & $<.01$ \\  \hline
+%     \multicolumn{7}{l}{\textbf{Rationale} - Confidence} \\
+%     & (Intercept) & 63.88 & 7.61 & 7 & 8.40 & $<.001$ \\
+% 	& CodeGlass & 14.42 & 9.21 & 7 & 1.57 & 0.16 \\ \hline
+%     \multicolumn{7}{l}{\textbf{History} - Precision} \\
+%     & (Intercept) & 0.125 & 0.125 & 7 & 1.00 & 0.33 \\ 
+% 	& CodeGlass & \textbf{0.750} & \textbf{0.163} & 7 & 4.58 & $<.01$ \\ \hline
+%     \multicolumn{7}{l}{\textbf{History} - Recall} \\
+%     & (Intercept) & 0.008 & 0.021 & 7 & 0.39 & 0.70 \\   
+% 	& CodeGlass & \textbf{0.148} & \textbf{0.025} & 7 & 5.97 & $<.001$ \\ \hline
+%     \multicolumn{7}{l}{\textbf{History} - Confidence} \\
+%     & (Intercept) & 6.25 & 8.41 & 7 & 0.74 & 0.48 \\
+% 	& CodeGlass & \textbf{60.36} & \textbf{11.15} & 7 & 5.41 & $<.01$ \\ \Hline
+%     \end{tabular}
+    
+% \end{table}
+
+% % We then developed the following hypotheses to derive our experimental design:
+
+% % \begin{itemize}
+% % \setlength{\leftskip}{4mm}
+% % \setlength{\itemsep}{0mm}
+% % \item[H1.] \textit{CodeGlass would not degrade accurate and precise execution understanding for code pieces.} This is because that CodeGlass does not prevent participants from examining raw code.  
+% % \item[H2.] \textit{CodeGlass would support more accurate and precise rationale understanding for code pieces.} This is because that past pull requests in CodeGlass can contain information about why code changes were made.  
+% % \item[H3.] \textit{CodeGlass would support more accurate and precise understanding of development history for code pieces.} This is because that a series of relevant past pull requests in CodeGlass can suggest the evolution of code pieces.
+% % \end{itemize}
+
+
+
+\subsection{実験内容}
+
+コードのContributorとUsageに関する情報収集においては，既に有用なツールが広く使用されている（git-blameコマンドなど）．
+そこで本実験においては，Execution（実装内容），Rationale（開発背景），History（開発経緯）に関する情報収集に関する評価を重点的に行うこととした．
+
+コード理解を支援するツールのユーザ評価では，デバッグのタスクが広く採用されている~\cite{Improving_API_Documentation_Usability_with_Knowledge_Pushing,Code_Bubbles}．
+デバッグのタスクでは，実験参加者は故意に実装されているバグを特定し修正することが求められる．
+しかし，CodeGlassの場合ユーザが過去のコード変更履歴を参照できてしまうため，実験参加者はバグ修正に必要なコード変更を容易に特定できてしまう恐れがある．
+
+% Debugging is a common task to assess the effect of code comprehension tools \cite{Improving_API_Documentation_Usability_with_Knowledge_Pushing,Code_Bubbles}.
+% In such a task, participants are asked to identify and fix deliberately-introduced bugs.
+% However, our system involves version control, and thus participants would be able to easily identify what changes would be needed to complete a bug fix task.
+
+そこで我々は，箇条書きの短いドキュメントの作成を実験のタスクとして採用した．
+このタスクにおいて実験参加者らは，与えられたコード断片に関するExecution，Rationale，Historyの情報を箇条書きで記す作業を行った．
+また箇条書きの各項目に対して，実験参加者にはその項目に対する自信度を0から100で与えるように支持した．
+高い自信度は，その項目のドキュメントに対し強い自信があることを意味する．
+% さらに，一つのタスクの時間は20分と設定した．
+
+% Instead, we decided to employ short documentation creation tasks.
+% We provided a simple text format for documenting execution, rationale, and history information.
+% Participants were asked to itemize any important information in these categories about the given code piece.
+% For each item, they also provided their confidence score from 0 to 100 in order to indicate how confident they were that the description was correct.
+% A higher score means a description with stronger confidence.
+% To avoid making our experiment unnecessarily long, we set the time limit for each task to 20 minutes.
+
+1つのタスクの時間は20分と設定した．
+また，我々はChart.jsのリポジトリにおける3つのソースコードのファイルをタスクとして選んだ．
+タスクに使用するソースコードのファイルは，core.animations.js，core.element.js，core.ticks.js（タスクA，タスクB，タスクC）とした．
+著者のうち2人がそれら3つのソースコードと開発履歴を確認し，ドキュメントに記されるべき情報を解答としてまとめた．
+その結果，平均で11.7件のExecutionに関する情報，9.3件のRationaleに関する情報，6.7件のHistoryに関する情報からなる解答を作成した．
+
+% We created four tasks using the repository of Chart.js in this experiment.
+% Two of the authors jointly examined the repository and developed information items that both agreed were important enough to be documented.
+% The tasks had 10.8, 9.8, and 7.3 items on average as answer keys for execution, rationale, and history categories, respectively.
+% Each task used a code piece from a different source code in Chart.js to avoid learning effects.
+% We chose the following files under the same directory: core.animation.js, core.canvasHelpers.js, core.ticks.js, and core.title.js\footnote{Note that this was moved to plugin.title.js as of March 26, 2017.}. 
+
+
+実験の条件は，GitHub上のインタフェース（non-CG），開発背景と理由の並べ替え機能がないCodeGlass（CG-），並べ替え機能を持つCodeGlass（CG）の3通りである．
+%開発背景と理由の並べ替えができない場合，プルリクエストの説明文に含まれる情報の量に応じたプルリクエストの並び替え(図~\ref{fig:interface1}~(1))と，プルリクエストの説明文中でExecutionまたはRationaleと推定された箇所のハイライト(図~\ref{fig:interface2}~(4))が使用できない．
+タスクの順序を固定した上で，インタフェースの割当順序をcounter-balanceした．
+
+
+% \subsubsection{実験手順}
+
+% CodeGlassのインターフェースとタスクの説明の後に，実験参加者に自由にCodeGlassを操作してもらった．
+% そして，実験参加者らは各20分のタスクを3つ行った．
+% その後に，我々はCodeGlassの印象について簡単なインタビューを行った．
+
+
+% % The participants were asked to come to our laboratory for this study.
+% % After they signed a consent form, we explained the CodeGlass interface and tasks, and gave time for practice.
+% % We had four tasks in total (Task A, B, C, and D) and two conditions: the GitHub Web interface with the presence and absence of CodeGlass (CG and non-CG).
+% % The two sets of tasks were counter-balanced for the two interface conditions across participants.
+% % We fixed the order of the tasks in each set.
+% % We alternatively switched the interface conditions to always start with the reference condition.
+% % Thus, the order for half of our participants was Task A/non-CG; Task B/CG; Task C/non-CG; and Task D/CG. 
+% % The rest were exposed to Task B/non-CG first, followed by Task A/CG; Task D/non-CG; and Task C/CG. 
+% % As all the participants had sufficient experience on GitHub, we expected that starting with the non-CG condition would not cause undesirable learning effects.
+
+% % After the participants completed all four tasks, we conducted a short semi-structured interview to understand their subjective impressions about CodeGlass and its potential use.
+% % The participants were offered a compensation of approximately 15 USD cash in local currency.
+
+%\subsubsection{Participants}
+
+本ユーザ評価では，12人の学生（PC1--12，全て男性）を実験参加者として得た．
+全員，1年以上のプログラミング経験がある，GitHubを用いた開発経験がある，JavaScriptの使用経験がある，Chart.jsの開発に参加したことがない，条件を満たしていた．
+以上の条件を満たす実験参加者らは，開発経験はあるものの，今回取り組む開発プロジェクトに関する背景知識の無い開発者であり，CodeGlassの想定ユーザと一致する．
+
+% As our tasks involve code comprehension, we set four criteria for participants: 1) their programming experience must be more than one year; 2) they must be familiar with GitHub; 3) they must be knowledgeable in JavaScript; and 4) they had not been involved in the Chart.js project.
+% Our participants would, thus, represent developers who have enough skills and experience on reading code but do not own prior knowledge about a given project.
+% Our selection criteria also reflected one of our target use cases of CodeGlass: junior developers who newly join a team and need to acquire understanding of source code in a project to engage in various tasks.
+% We recruited 8 volunteers for this study (PB1--8; all male; 22.1 years old on average).
+
+
+\subsection{実験結果}
+
+実験参加者らが作成したドキュメントの箇条書きのうち，事前に作成した解答に含まれる項目を正解数として数えた．
+そして，その正解数をもとに適合率と再現率を計算した．
+但し，ドキュメントに何も記されていなかった場合，適合率，再現率ともに0とした．
+表~\ref{table:experiment_result}に，適合率，再現率，自信度の平均と標準偏差を示す．
+%CGにおけるExecutionに関する全ての指標が，non-CG,CG-と比較して高いことが分かる．
+%また，CGにおける自信度が，全ての分類においてnon-CGとCG-より高くなっている．
+% \shibato{The precision values in the CodeGlass condition were high for all documentation categories.
+% The recall values for rationale and history documentation had improvements with CodeGlass.}{簡単な考察}
+実験結果を分析するために，システム（non-CG，CG-，CG）を要因とした反復測定の一元配置分散分析（ANOVA）により，適合率，再現率，自信度を比較した（表~\ref{table:stats_result}）．
+その結果，Executionの自信度，Rationaleの再現率，Historyの再現率と自信度の計4つにおいて，3条件間に有意性が認められた．
+ボンフェローニ法による多重比較を行った結果，non-CGとCG-およびnon-CGとCGの間に有意差が認められたのは，Rationaleの再現率（$p<.05$）とHistoryの自信度（$p<.01$）であった．
+また，Executionの自信度においてnon-CGとCGの間（$p<.01$），Historyの再現率においてnon-CGとCG-の間（$p<.05$）に有意差が認められた．
+
+
+% During the post-experimental interviews, four participants explicitly mentioned that the response speed of CodeGlass was fast enough for their interaction.
+% Our participants expressed various potential use of CodeGlass: understanding unfamiliar code (7 participants); learning how to fix bugs (3 participants); and self-training with open source projects (2 participants).
+% PB5 commented that CodeGlass could help him understand part of code which he is not familiar with.
+% This is in line with our main target use scenario identified in our formative study.
+
+% %P5: 自分が使いたいと思うときっていうのはやっぱり複数人でやってるんだったら自分が担当してない部分のコードを理解したいなーって思うときにこれを．
+% \myquote{I want to use this (CodeGlass) when I work in a team and want to understand a part of code which I am not in charge of.}{PB5}
+また実験後に行ったインタビューでは，CodeGlassがどのような開発場面で有用になりそうかを実験参加者に質問した．
+その結果，想定される利用場面として，「知らないコードの理解（7人）」，「バグ修正方法の理解（3人）」，「オープンソースのコードを利用した自習（2人）」が挙げられた．
+特に複数人での開発を行う場面やオープンソースのプロジェクトにおいて，与えられたコードを理解するのに適しているという声が上げられた．
+
+\myquote{自分が使いたいと思うときっていうのは，やっぱり複数人でやってるんだったら，自分が担当してない部分のコードを理解したいなー，って思うときにこれを．}{PC5}
+
+\myquote{全部どういうコードでこの人が書いたかっていうのが，今まではソースとかコメントしか読めなかったけども，プロジェクト自体がどうやって運んでいくかっていうのもちょっと引いた目で見るみたいなことがいろいろな教材も無限にあるし，っていうのでいいんじゃないかなと．}{PC7}
+
+%\subsubsection{Quantitative Results}
+% We counted how many items in our answer keys our participants documented.
+% We then calculated the precision and recall based on the number of correct items.
+% When there was no documented item for a particular category, we regarded all evaluation metrics as 0.
+% Table~\ref{table:experiment_result} shows the means and standard deviations of the precision, recall, and confidence scores.
+% The precision values in the CodeGlass condition were high for all documentation categories.
+% The recall values for rationale and history documentation had improvements with CodeGlass.
+
+% We conducted multi-level linear regression analysis to quantify the contribution of CodeGlass for each metric.
+% Multi-level linear regression initially hypothesizes that factors have zero effect on the dependent variable.
+% Significant results suggest that factors have non-zero contributions.
+% Table~\ref{table:stats_result} shows the estimated coefficients for the CodeGlass factor.
+% We found significant results for recall and all scores in rationale and history documentation, respectively.
+% In particular, CodeGlass made substantial improvements of 0.750 ($SE=0.163$) on the precision of history-related items.
+% Recall values for rationale and history items also increased under the CodeGlass condition by 0.149 ($SE=0.038$) and 0.148 ($SE=0.025$), respectively.
+% In addition, CodeGlass contributed to the increase of confidence scores for history-related items by 60.36 ($SE=11.15$).
+
+% During the post-experimental interviews, four participants explicitly mentioned that the response speed of CodeGlass was fast enough for their interaction.
+% Our participants expressed various potential use of CodeGlass: understanding unfamiliar code (7 participants); learning how to fix bugs (3 participants); and self-training with open source projects (2 participants).
+% PB5 commented that CodeGlass could help him understand part of code which he is not familiar with.
+% This is in line with our main target use scenario identified in our formative study.
+
+% %P5: 自分が使いたいと思うときっていうのはやっぱり複数人でやってるんだったら自分が担当してない部分のコードを理解したいなーって思うときにこれを．
+% \myquote{I want to use this (CodeGlass) when I work in a team and want to understand a part of code which I am not in charge of.}{PB5}
+
+% PB3 shared his view with us that development history information provided by CodeGlass could inform how to fix and even avoid possible bugs.
+% %P3: むしろこれはなんか，プログラム中級者がさ，開発歴見てああ俺もこういうバグやっちまうわーみたいなので共感して，ああこう治すんだっていう知識を仕入れるときに良さそう．
+% \myquote{I think this (CodeGlass) is useful when intermediate-level programmers can look at development history and see `Ah, I would do the same mistake.' Then they can learn how to fix such bugs.}{PB3}
+
+% We also asked our participants how they would use CodeGlass for open source projects.
+% PB5 and PB7 responded that CodeGlass can help self-learning.
+% PB7 commented that he could exploit open source projects much more than the default GitHub interface for his self-learning.
+% %P5: オープンソースでやるなら，そうだな自分も全然ただの開発に携われるようなスキルを持ってるわけじゃないから直接連絡とかは取れないしって思うんだったら全然これを使って勉強するっていうか，理解するのはやっぱり無いよりかは分かりやすかったと僕は思いました．}
+% %\myquote{Well, I do not have enough skills to get involved in (open source) projects. So I am hesitant to directly contacting contributors. But if I can use this (CodeGlass), I can learn code by myself.}{PB5}
+% %P7: だから，どんどん新しいそのなんでも教材に出来るっていうか．どんなそのGitHubのものも，例えば先生を見つけてくれば，簡単なものから複雑なものまで，全部どういうコードでこの人が書いたかっていうのが，今まではソースとかコメントしか読めなかったけども，プロジェクト自体がどうやって運んでいくかっていうのもちょっと引いた目で見るみたいなことがいろいろな教材も無限にあるし，っていうのでいいんじゃないかなと．
+% \myquote{[With CodeGlass] I can use anything as a learning material. If I can find a good example, regardless of simple or complex code, I can see how developers wrote code. Until now, I can only read source code and comments. But [with CodeGlass] I can have a higher-level view on how the project is going on.}{PB7}
+

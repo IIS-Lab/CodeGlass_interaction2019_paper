@@ -1,0 +1,113 @@
+% \section{Informal Expert Review}
+\section{プログラマによる定性的評価}
+
+さらに我々は，専門的なプログラマにとってのCodeGlassの有用性を調査するために，4社のIT企業から8人のプログラマ（PD1--PD8, 全て男性）を募り，インタビューによるCodeGlassの評価を行った．
+
+この定性的実験の参加者からもCodeGlassが有用になりうる場面に関して複数の意見が得られた．
+具体的には，過去のプルリクエストを参照が容易になる（8人），開発チームの新メンバーの教育に有用である（5人），オープンソースのコード理解に有用である（4人），が挙げられた
+% \shibato{: supporting past pull request reading (8 participants); facilitating developer onboarding (5 participants); and comprehending open source code (4 participants).}{こういうのどう書けばいいんだ}
+それらに加えて，実験参加者らはプログラマの専門的な用途におけるCodeGlassの利点を述べた．
+
+
+
+% Our user evaluation with novice developers (i.e., university students) confirms the benefits of CodeGlass.
+% We next examined the potential of our system for professional use.
+% A deployment study would be ideal for this purpose; however, it is very difficult due to confidentiality issues.
+% Thus, we conducted informal expert reviews with 8 professional programmers (PD1--PD8, all male) in 4 different IT companies.
+
+% Our interviewees agreed on benefits of CodeGlass the lab study participants also mentioned: supporting past pull request reading (8 participants); facilitating developer onboarding (5 participants); and comprehending open source code (4 participants).
+% Beside these benefits, they expressed the following potential advantages for professional use.
+
+\subsection*{隠れた開発背景の理解}
+% \subsection*{Understanding Hidden Development Context}
+
+実際のソフトウェア開発現場では，厳格な期日や実装力の不足などの様々な理由から，常に最善の実装方法が選択されるとは限らない．
+しかし，完成されたソースコードではそういった開発背景は隠れてしまう．
+実験参加者2名（PD3とPD7）は，CodeGlassはソースコードの裏にある開発背景を理解することにおいて有用であると述べた．
+
+% In a real development environment, programmers do not always achieve the most efficient coding due to various reasons (e.g., tight deadlines and lack of coding skills).
+% Raw code does not necessarily offer such background information when other developers revisit it.
+% PD3 and PD7 stated that CodeGlass can help them obtain the context of development.
+
+
+%\myquote{昔のリポジトリのメンテナンスとかしてると結構危ないコードがあって，でも当時のチーム構成や技術力だったりリリースしないといけないみたいなのを考えると仕方なかったりするんですよね．そういうのを過去のログ（プルリクエスト）から読み取れていい．}{PD3}
+
+%\myquote{When I am taking care of old repositories, I often find pretty dangerous code. But it could not be helped because we didn't have enough team members and skills at that time. This [CodeGlass] can help me view such background stories from past logs, and I like it.}{PD3}
+
+\myquote{新規で入ってコード見ると，だめなコードがたくさんあるんですよね．でも実はそれは特定の技術を使ってはいけないみたいな制約のもとの苦渋の決断だったことってかなりあるんですよね．そういうのはコードをみても絶対に分からないし，かといって大規模だと履歴を追うのは相当つらい．}{PD7}
+
+% \myquote{Horribly-written code is often a product of tough decisions by various constraints. Such backgrounds would never be visible from code, but it is tedious to review histories in a large-scale project.}{PD3}
+
+% \myquote{コードが仕様と合わなくなったり逆に仕様書とか読んだら間違ったりとかあるので，コードが一番大事というか，正確で，ただそのコードがなぜ入ったかっていうのは昔のプルリクエストで見るんで，そういう時に使えると思います．}{P3}
+
+% \myquote{こういう大きい会社ではいろんな人がすごいスピードで開発しててドキュメントもないから，全体的なコード理解にはすごくいいと思う．}{P6}
+
+% \myquote{仕様書をもとにコードを作って，仕様書をもとにテストするんですが，でもやっぱり経緯はわかんないし，仕様書とコードの間のギャップって凄まじいんですよね．仕様書もコードも結果であって，開発理由とかは本当にわからない}{P7}
+
+
+ソフトウェア開発プロジェクトでは通常仕様書が作成されるが，開発が進んでも仕様書が更新されない状況が多く発生する．
+CodeGlassは，古い情報からなる仕様書とソースコードの乖離を埋められる可能性が指摘された．
+
+% Although projects have specifications, they would be outdated after a series of code revisions.
+% %As a result, such specifications do not offer correct information about existing code.
+% Pull requests extracted by CodeGlass would be useful to fill the gap between outdated specifications and code.
+
+\myquote{仕様書をもとにコードを作って，仕様書をもとにテストするんですが，でもやっぱり経緯はわかんないし，仕様書とコードの間のギャップって凄まじいんですよね．仕様書もコードも結果であって，開発理由とかは本当にわからない．}{PD7}
+
+% \myquote{We write and test code based on a specification. But it doesn't tell me how the code has been developed. And a gap between the specification and actual code is huge. Both specifications and code are just end products, and they don't tell me reasons why they are here.}{PD7}
+
+
+\subsection*{プルリクエストによるドキュメント作成}
+% \subsection*{Documentation through Pull Requests}
+
+ソフトウェア開発におけるドキュメントの重要性は広く認知されているが，実際の開発現場では，開発者はドキュメント作成に時間を割くことができていない~\cite{A_Study_of_the_Documentation_Essential_to_Software_Maintenance}．
+実験参加者2名（PD5とPD8）は，CodeGlassが将来参照する時のために，プルリクエストの説明文を詳細に書く習慣をCodeGlassが促す可能性があると述べた．
+
+% Although the importance of software documentation is well known, developers do not spare time and effort for it in reality~\cite{A_Study_of_the_Documentation_Essential_to_Software_Maintenance}.
+% %The participants also stated that they do not create detailed documentation, and pull requests can be a useful information resource to understand the rationale of source code.
+% PD5 and PD8 shared with us a unique idea that CodeGlass could encourage them to write detailed pull requests for future references.
+
+% \myquote{これ見て思ったのは，後からプルリクを分かりやすいように書き直したいと思うだろうなと思って，情報をどんどんあとから追加してWikiとかドキュメントみたいにできるかも．}{P5}
+
+%myquote{ソースコードのドキュメントって最近廃れてきてる気がしていて，よく関数名の上にコメント書くとドキュメントができたり，変数名からドキュメント作るやつありますけど，結局面倒とかqualityが低いとか，あと情報量がないので使わないんですよね．何してるかなんてある程度コード見たらわかるのでどうでもよくて，やっぱりなぜそのコードになったのかが重要で，プルリクは開発フローに既にあるし，それをもう少しちゃんと書いたらドキュメントになるってのはすごく新しいし実用的ですね}{PD8}
+
+\myquote{やっぱりなぜそのコードになったのかが重要で，プルリクは開発フローに既にあるし，それをもう少しちゃんと書いたらドキュメントになるってのはすごく新しいし実用的ですね．}{PD8}
+
+% \myquote{It's important to share why we wrote this particular code. Because pull requests are already in our development process, and (with CodeGlass) if we write them a little more properly, they become documentations. That's pretty new and practical.}{PD8}
+
+% \subsection*{Assisting to Understand Codes in Open Source Projects}
+
+% CodeGlass works on all repositories on GitHub by only cloning them to the server system.
+% Developers often investigate open source projects to understand external libraries they use in their projects.
+% They also see open source as a means of learning good coding practices.
+% CodeGlass has a great potential for supporting code understanding in open source projects by using such resources.
+% The participants agree on this as a potential use of CodeGlass.
+
+% \myquote{僕がオープンソースを読むのは，一個はちょっと参考になるとか勉強しようとか，なんかメジャーなリポジトリがどう作られてるかとか勉強目的で読むのと，あとはうちが使ってるライブラリとかあるんですよね，で，それらが挙動がよくわかんない時とか，より深く見ていきたい時とかっていうのは，なんでこういう実装というか，意図はなんなんだみたいな，深く見る時に使うかなあと思います．}{P1}
+
+
+% \myquote{オープンソースだったらめっちゃ喜ばれそうですねえ，僕らは大体使ってるライブラリに何か問題があった時に，見に行ったりするので，めっちゃ助かりますね．}{P4}
+
+
+\subsection*{コードレビューの支援}
+
+ソフトウェアの品質を担保する上でコードレビューは重要な仕事である．
+しかし，コードレビューを適切に行うためには，ソースコードとその開発背景に関する十分な理解が必要となる．
+3人の実験参加者ら（PD1，PD3，PD6）は，CodeGlassでは過去のプルリクエストを簡単に参照できるため，コードレビューにおいても有用であると指摘した．
+
+% Code review is a common practice for quality control.
+% But proper code review requires deep comprehension of revisions and their reasons.
+% %Reviewers also have to acquire the context and history of the project to fully understand the changes.
+% Three participants (PD1, PD3, and PD6) commented that CodeGlass would be helpful in code review because it offers quick access to relevant past pull requests.
+
+\myquote{レビューしていてコードの意図がわかんない時とか，かなり複雑なコードだった時に，プルリクに詳しく説明があるかなあって感じだったので，今言ったような時に使うかなあと．}{PD1}
+
+% \myquote{When I don't understand the intention of the given code or when it is very complex, I expect there may be some details in pull requests, so it [CodeGlass] could be useful for that.}{PD1}
+
+% \myquote{これを使えばプルリクの履歴でまあそれを探し出せる，もちろんレビューの時に情報は多いほうがいいので．}{P3}
+%\myquote{With this [CodeGlass], I can find (information about context) from past pull requests. It's always good to have as much information as possible when I do code review.}{PD3}
+
+% \myquote{レビューしててそもそもこのクラス全体は何用だっけとかなるので，レビュー中は特に大雑把にコードの意味を思い出したいことがたしかに結構ある．}{PD6}
+
+
+

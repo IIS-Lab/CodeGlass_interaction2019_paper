@@ -1,0 +1,35 @@
+%\section{Limitations}
+\subsection{本研究の限界}
+
+ユーザ評価によりCodeGlassの有用性を明らかにすることができた一方で，本研究にはさらなる改良を要する点が存在する．
+ソフトウェア開発においてプルリクエストが使用されていない，あるいは説明文が十分に書かれていない場合，CodeGlassを有効活用することはできない．
+先行研究ではコード変更の説明文を記述することを支援するシステムが実装されており~\cite{ChangeScribe}，CodeGlassと併用することで，プルリクエストの使用や説明文の詳細な記述を促すことができる可能性がある．
+% ユーザ評価においてCodeGlassの遅延に関する指摘は無かったものの，現在のCodeGlassのアルゴリズムは，コード断片の追跡に数秒の時間を必要とする．
+% アルゴリズムの最適化と速度評価は本研究の目的とは外れるが，さらなる検証が必要であると考える．
+
+% Although our results suggest a strong potential of CodeGlass, there are several limitations in our study.
+% The current backtrack algorithm implementation generally takes less than a few seconds to identify code pieces in past pull requests; however, our lab study participants did not mention noticeable delays.
+% Algorithm optimization and speed performance evaluations are out of our main scope though they are important for future work.
+%Future work should investigate how to optimize its process.
+
+
+
+% CodeGlass would not be effective if a project does not regularly use pull requests or developers do not write proper descriptions in commits.
+% Prior work has investigated a tool to support developers to write commit descriptions~\cite{ChangeScribe}, which can co-exist with CodeGlass.
+% Because information offered by CodeGlass is useful for code comprehension, our system could also encourage a practice of using pull requests and writing detailed comments as the informal expert review suggested. 
+
+
+% Our backend algorithm does not currently support backtracking at a word- or character-level of granularity.
+% Such a capability would enable new use scenarios (e.g., looking into the implementation history and reasons for a particular variable).
+% However, very accurate syntactic understanding would be necessary.
+% Future work should investigate how AST-based methods~\cite{GumTree, Change_Distilling} could support finer-level code examination.
+
+CodeGlassはユーザが選択したコード断片に関連するプルリクエストのみを提示するが，大規模なリポジトリにおいてCodeGlassを使用した場合，多くのプルリクエストが表示されてしまう恐れがある．
+CodeGlassのユーザ実験では，コード理解において有用でないプルリクエスト（``Fix typos''や``Clean up indent''など）が表示される場合があり，フィルタリング機能などが今後の課題として挙げられる．
+% Our tool extracts only commits related to the chosen code pieces, but the information can be still overwhelming in a very large project.
+% Our preliminary investigation found that commits and review messages often contain short social messages (e.g., ``Thanks!'' or ``Great job!'') or routine descriptions (e.g., ``Fix typos'' or ``Clean up indent'').
+% Removing unnecessary descriptions including example above could improve the glanceability of the interface.
+
+% Two interviewees commented that they wanted to use CodeGlass as an extension of code editor or IDE.
+% Those tools provide features dedicated to code reading, such as ``jump to definition'' or ``auto folding''.
+% CodeGlass can facilitate various usage scene when provided not only for a browser but also an editor or IDE extension.
