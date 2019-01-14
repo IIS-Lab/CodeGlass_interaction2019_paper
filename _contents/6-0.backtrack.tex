@@ -150,7 +150,7 @@ LHDiffはword-level fuzzy matching~\cite{sankoff1983time}を用いて$CP_{S}$と
 この原因は，LHDiffでは$CP_T$が一つしか存在しないと仮定されているからである．
 実際のコード変更履歴では，被選択コード断片が過去のバージョンにおいて他のコード断片と統合されていたり，分割されて実装されていたりする可能性がある．
 特に大規模なソフトウェア開発プロジェクトでは，ソースコードの構造的変更が繰り返し行われる事が多いため，LHDiffをそのままCodeGlassのサーバに実装すると，CodeGlassの実用性が制限されてしまう．
-そこで我々は，LHDiffに新たにgraceful matchingを導入することでこの問題を解決することを試みた．
+そこで我々は新たにgraceful matchingを提案し，LHDiffに導入することでこの問題を解決することを試みた．
 
 % However, our pilot study on the na\"{i}ve LHDiff method found that it fails to backtrack when revisions involve structural changes (e.g., merge and refactoring) because it assumes that the number of $CP_T$ is always one.
 % This may cause degradation of the utility of CodeGlass.
