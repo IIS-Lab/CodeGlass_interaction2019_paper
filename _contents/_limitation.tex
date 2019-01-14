@@ -12,6 +12,9 @@
 % Algorithm optimization and speed performance evaluations are out of our main scope though they are important for future work.
 %Future work should investigate how to optimize its process.
 
+CodeGlassは過去のプルリクエストを活用することでコード断片に関連する情報を提供することができるが，ソースコード全体の俯瞰的な理解の支援に関しては評価を行っていない．
+リポジトリのファイルやクラス構造の理解支援は本研究の目的とは外れるが，Chronicler~\cite{Chronicler}のようなソースコード全体の理解を支援するシステムと併用することで，ユーザのコード理解をより包括的に支援できる可能性がある．
+
 
 
 % CodeGlass would not be effective if a project does not regularly use pull requests or developers do not write proper descriptions in commits.
@@ -33,3 +36,7 @@ CodeGlassのユーザ実験では，コード理解において有用でない�
 % Two interviewees commented that they wanted to use CodeGlass as an extension of code editor or IDE.
 % Those tools provide features dedicated to code reading, such as ``jump to definition'' or ``auto folding''.
 % CodeGlass can facilitate various usage scene when provided not only for a browser but also an editor or IDE extension.
+
+CodeGlassはユーザが選択したコード断片に関連する情報のみを提供しており，コード断片を参照する関数といった他のコード断片に関する情報提示は行っていない．
+例えば構文解析を用いることで選択されたコード断片と強く関連する他のコード断片を特定できると考えられるが，CodeGlassの特徴であるプログラミング言語の非依存性が失われてしまう．
+選択されたコード断片に関する情報を完全に抽出するためには，さらなる検証が必要であると考える．
