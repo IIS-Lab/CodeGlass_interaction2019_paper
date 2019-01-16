@@ -12,8 +12,8 @@
 % Algorithm optimization and speed performance evaluations are out of our main scope though they are important for future work.
 %Future work should investigate how to optimize its process.
 
-CodeGlassは過去のプルリクエストを活用することでコード断片に関連する情報を提供することができるが，ソースコード全体の俯瞰的な理解の支援に関しては評価を行っていない．
-リポジトリのファイルやクラス構造の理解支援は本研究の目的とは外れるが，Chronicler~\cite{Chronicler}のようなソースコード全体の理解を支援するシステムと併用することで，ユーザのコード理解をより包括的に支援できる可能性がある．
+CodeGlassは過去のプルリクエストを用いてコード断片に関連する情報を提供することができるが，ソースコード全体の俯瞰的な理解の支援に関しては評価を行っていない．
+リポジトリのファイルやクラス構造の理解支援は本研究の目的とは外れるが，Chronicler~\cite{Chronicler}のようなソースコード全体の理解を支援するシステムと併用することで，コード理解をより包括的に支援できる可能性がある．
 
 
 
@@ -27,8 +27,9 @@ CodeGlassは過去のプルリクエストを活用することでコード断�
 % However, very accurate syntactic understanding would be necessary.
 % Future work should investigate how AST-based methods~\cite{GumTree, Change_Distilling} could support finer-level code examination.
 
-CodeGlassはユーザが選択したコード断片に関連するプルリクエストのみを提示するが，大規模なリポジトリにおいてCodeGlassを使用した場合，多くのプルリクエストが表示されてしまう恐れがある．
-CodeGlassのユーザ実験では，コード理解において有用でないプルリクエスト（``Fix typos''や``Clean up indent''など）が表示される場合があり，フィルタリング機能などが今後の課題として挙げられる．
+CodeGlassは選択されたコード断片に関連するプルリクエストのみを提示するが，大規模なリポジトリにおいてCodeGlassを使用した場合，多くのプルリクエストが表示されてしまう恐れがある．
+% CodeGlassのユーザ実験では，コード理解において有用でないプルリクエスト（``Fix typos''や``Clean up indent''など）が表示される場合があり，フィルタリング機能などが今後の課題として挙げられる．
+コード理解において有用でないプルリクエスト（``Fix typos''や``Clean up indent''など）のフィルタリング機能などが今後の課題である．
 % Our tool extracts only commits related to the chosen code pieces, but the information can be still overwhelming in a very large project.
 % Our preliminary investigation found that commits and review messages often contain short social messages (e.g., ``Thanks!'' or ``Great job!'') or routine descriptions (e.g., ``Fix typos'' or ``Clean up indent'').
 % Removing unnecessary descriptions including example above could improve the glanceability of the interface.
@@ -39,4 +40,4 @@ CodeGlassのユーザ実験では，コード理解において有用でない�
 
 CodeGlassはユーザが選択したコード断片に関連する情報のみを提供しており，コード断片を参照する関数といった他のコード断片に関する情報提示は行っていない．
 例えば構文解析を用いることで選択されたコード断片と強く関連する他のコード断片を特定できると考えられるが，CodeGlassの特徴であるプログラミング言語の非依存性が失われてしまう．
-選択されたコード断片に関する情報を完全に抽出するためには，さらなる検証が必要であると考える．
+選択されたコード断片に関する情報を完全に抽出するためには，さらなる検証が必要である．

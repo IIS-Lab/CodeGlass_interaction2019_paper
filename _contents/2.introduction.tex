@@ -1,5 +1,12 @@
 \section{はじめに}
 
+\begin{figure}[!b]
+\centering
+\includegraphics[width=1.2\columnwidth]{interface/top_image.png}
+\caption{CodeGlass上でユーザは選択したコード断片に関連する過去のプルリクエストを参照することができる．プルリクエストの説明文に含まれる実装内容や開発背景といった情報は，ユーザのコード理解を支援することができる．}
+~\label{fig:top}
+\end{figure}
+
 ソフトウェア開発においてソースコードの理解は必要不可欠である．
 ソフトウェア開発者はコードを書くだけでなく，同じチームの他の開発者によるコード変更をレビューしたり，開発プロジェクトのスケジュールや進捗を管理したりする必要がある．
 その全てのタスクにおいて，正確なコード理解が常に必要となる．
@@ -64,7 +71,7 @@ LHDiff~\cite{LHDiff}を改良したアルゴリズムにより，選択された
 
 \begin{itemize}
 % \setlength{\leftskip}{-3mm}
-\item ユーザが選択したコード断片に関連する過去のプルリクエストを表示し，実装内容や開発背景に関する文章を強調するCodeGlassインターフェース
+\item ユーザが選択したコード断片に関連する過去のプルリクエストを表示し，実装内容や開発背景に関する文章を強調するCodeGlassインターフェースの構築
 \item LHDiff~\cite{LHDiff}の改良による，過去のバージョンにおけるコード断片の追跡精度の向上
 \item コード断片の理解におけるCodeGlassの有用性の定量的・定性的評価
 \end{itemize}
@@ -80,12 +87,6 @@ LHDiff~\cite{LHDiff}を改良したアルゴリズムにより，選択された
 % \end{itemize}
 
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=1.2\columnwidth]{interface/top_image.png}
-\caption{CodeGlass上でユーザは選択したコード断片に関連する過去のプルリクエストを参照することができる．プルリクエストの説明文に含まれる実装内容や開発背景といった情報は，ユーザのコード理解を支援することができる．}
-% \caption{CodeGlass allows users to interactively examine descriptions and comments in pull requests relevant to the chosen portion of code (highlighted in light green). Information in these pull requests can be useful to understand the background of development.}
-~\label{fig:top}
-\end{figure}
+
 
 

@@ -19,9 +19,9 @@
 
 \subsection{コード変更の理解支援}
 
-GitHubをはじめとする多くのソフトウェア開発管理システムでは，コード差分を記録する事でコード変更の追跡が可能となっている．
+GitHubをはじめとする多くのソフトウェア開発管理システムでは，コード差分を記録することでコード変更の追跡が可能となっている．
 加えて，開発管理システムの多くがバージョン管理の機能を提供しており，コード変更の管理やコードレビューのために広く活用されている．
-先行研究では，ソフトウェア開発におけるコード変更を理解する事を支援するための様々な手法が調査されてきた．
+先行研究では，ソフトウェア開発におけるコード変更を理解することを支援するための様々な手法が調査されてきた．
 
 % Modern project management systems include the diff function by default, and enable code change tracking.
 % They also introduce the notion of commits, used for version controls and code reviews.
@@ -29,20 +29,20 @@ GitHubをはじめとする多くのソフトウェア開発管理システム�
 % Prior research has examined approaches to supporting documentation and comprehension on code changes.
 
 ソースコードの多くの部分に影響を与えるコード変更がバグを含んでいた場合，システムに重大な問題が生じてしまう恐れがある．
-Bucknerら~\cite{JRipples}が開発したJRipplesでは，構文解析を行うことにより，コード変更にバグが含まれていた際にソースコードの中で影響を受ける可能性があるクラスをユーザに提示する事ができる．
-Zhangら~\cite{Interactive_Code_Review_for_Systematic_Changes}が開発したCRITICSは，与えられたコード変更と類似した過去のコード変更を提示することにより，コード変更にバグが含まれることを防ぐために着目すべき点を開発者がより正確かつ効率的に発見する事が可能となった．
-JRipplesやCRITICSがコードレビュアーのコード理解の支援を目的としている一方で，正確なコードレビューを行うためにはコード変更の説明が詳細に記述されている事も重要である．
+Bucknerら~\cite{JRipples}が開発したJRipplesでは，構文解析を行うことにより，コード変更にバグが含まれていた際にソースコードの中で影響を受ける可能性があるクラスをユーザに提示することができる．
+Zhangら~\cite{Interactive_Code_Review_for_Systematic_Changes}が開発したCRITICSは，与えられたコード変更と類似した過去のコード変更を提示することにより，コード変更にバグが含まれることを防ぐために着目すべき点を開発者がより正確かつ効率的に発見することが可能となった．
+JRipplesやCRITICSがコードレビュアーのコード理解の支援を目的としている一方で，正確なコードレビューを行うためにはコード変更の説明が詳細に記述されていることも重要である．
 そこでBuseら~\cite{Automatically_Documenting_Program_Changes}は，コード変更からその説明文を自動生成する手法を実装した．
-ユーザ評価の結果，既存のコミットメッセージの89％はBuseらの手法を用いて生成できうる内容である事が分かった．
-% 彼らのユーザ評価では，自動生成された説明文は既存のコミットメッセージの89\%を\sakaguchi{代替可能}{わかったのですが1回目は？となってしまいました…（既存のコミットメッセージの89％は彼らの手法を用いて生成できうる内容である？）}である事が分かった．
+ユーザ評価の結果，既存のコミットメッセージの89％はBuseらの手法を用いて生成できうる内容であることが分かった．
+% 彼らのユーザ評価では，自動生成された説明文は既存のコミットメッセージの89\%を\sakaguchi{代替可能}{わかったのですが1回目は？となってしまいました…（既存のコミットメッセージの89％は彼らの手法を用いて生成できうる内容である？）}であることが分かった．
 同様に，Linares-Vasquezら~\cite{ChangeScribe}が開発したChangeScribeもまた，コミットメッセージとして使用可能な説明文をコード変更から自動生成するシステムである．
 ChangeScribeには説明文にコード変更の内容だけでなくその背景も含めるために，複数の情報抽出アルゴリズムが実装されている．
 
 % Zhangら~\cite{Interactive_Code_Review_for_Systematic_Changes}はコード変更の理解を支援するCRITICSというシステムを開発した．
 % \shibato{CRITICSは与えられたコード変更と類似した過去のコード変更とそのレビューの記録を管理システムから検索する．}{double-check}
-% 開発者はその記録を見る事で，コード変更の理解をより正確かつ効率的に行う事ができる．
+% 開発者はその記録を見ることで，コード変更の理解をより正確かつ効率的に行うことができる．
 % Buseら~\cite{Automatically_Documenting_Program_Changes}はコード変更のデータからその説明文を自動生成する手法を実装した．
-% 彼らのユーザ評価では，自動生成された説明文は既存のログの89\%を代替可能である事が分かった．
+% 彼らのユーザ評価では，自動生成された説明文は既存のログの89\%を代替可能であることが分かった．
 % 同様に， Linares-Vasquezら~\cite{ChangeScribe}が開発したChangeScribeもまた，コミットメッセージとして使用可能な説明文をコード変更から自動生成するシステムである．
 % コミットの内容や文脈を説明文に付与するために\masaki{．}{，}ChangeScribe\masaki{は}{には/では}複数の情報抽出アルゴリズムが実装されている．
 % しかし，彼らのシステム評価ではユーザの主観的な調査が行われていない．
@@ -59,8 +59,8 @@ ChangeScribeには説明文にコード変更の内容だけでなくその背�
 
 
 本研究の目的は，前述の先行研究とは異なり，コード断片の理解支援である．
-コード理解においては，コード変更に付随する説明文が有益である事が既に明らかとなっている~\cite{Commit_2.0, How_Do_Software_Engineers_Understand_Code_Changes}．
-本研究はコード断片に関連する過去のコード変更を抽出し，それらに含まれる説明文をユーザに提供する事で，コード断片の理解支援を目指す．
+コード理解においては，コード変更に付随する説明文が有益であることが既に明らかとなっている~\cite{Commit_2.0, How_Do_Software_Engineers_Understand_Code_Changes}．
+本研究はコード断片に関連する過去のコード変更を抽出し，それらに含まれる説明文をユーザに提供することで，コード断片の理解支援を目指す．
 
 % Our primary focus is to support comprehension on a portion of code using GitHub pull requests.
 % Prior work found that descriptions in commits are often useful to understand code changes~\cite{How_Do_Software_Engineers_Understand_Code_Changes}.
@@ -70,7 +70,7 @@ ChangeScribeには説明文にコード変更の内容だけでなくその背�
 %APIのドキュメントなど，ドキュメンテーションを作ることとそれらを利用することサポートするようなものをここにいれる．
 
 ドキュメントはコード理解における有用な情報源であり，その重要性は広く認知されている．
-しかし実際のソフトウェア開発プロジェクトではドキュメントを作成する時間が不足している事が多い\cite{A_Study_of_the_Documentation_Essential_to_Software_Maintenance}．
+しかし実際のソフトウェア開発プロジェクトではドキュメントを作成する時間が不足していることが多い\cite{A_Study_of_the_Documentation_Essential_to_Software_Maintenance}．
 そこでドキュメントの作成支援や，既存のドキュメントを活用したコード理解の支援に関する研究が広く行われてきた．
 
 
@@ -80,12 +80,12 @@ ChangeScribeには説明文にコード変更の内容だけでなくその背�
 
 
 Sridharaら~\cite{Automatically_Detecting_and_Describing_High_Level_Actions_Within_Methods}はJavaの関数の要約を自動生成するSWUMというシステムを実装した．
-SWUMはソースコード全体と関数の構造的関係性を解析する事で，ドキュメントとして使用可能な関数の説明文を自動生成する事ができる．
+SWUMはソースコード全体と関数の構造的関係性を解析することで，ドキュメントとして使用可能な関数の説明文を自動生成することができる．
 McBurneyとMcMillan~\cite{Automatic_Documentation_Generation_via_Source_Code_Summarization_of_Method_Context}はSWUMをさらに改良し，与えられた関数のコード内での使用例も追加できるようにした．
-これらの手法により，自動生成される説明文に文脈を考慮した情報を追加する事が可能となった．
+これらの手法により，自動生成される説明文に文脈を考慮した情報を追加することが可能となった．
 またStylosら~\cite{Jadeite}は，JavaのAPIのドキュメントが簡単に検索できるようになるJadeiteを開発した．
-ユーザはJadeite上でドキュメントにエイリアスとなるクラス名や関数名を追加する事ができる．
-このエイリアスは実際のJavaのAPIと紐づいており，ユーザはAPIの名前だけでなくそのエイリアスでもAPIのドキュメントを検索する事ができる．
+ユーザはJadeite上でドキュメントにエイリアスとなるクラス名や関数名を追加することができる．
+このエイリアスは実際のJavaのAPIと紐づいており，ユーザはAPIの名前だけでなくそのエイリアスでもAPIのドキュメントを検索することができる．
 
 % Sridhara et al.~\cite{Automatically_Detecting_and_Describing_High_Level_Actions_Within_Methods} developed a technique to automatically generate summary comments for Java methods.
 % An algorithm in their system, called SWUM, can capture linguistic and structural relationships of keywords in code as well as count their occurrences.
@@ -98,9 +98,9 @@ McBurneyとMcMillan~\cite{Automatic_Documentation_Generation_via_Source_Code_Sum
 
 
 既存のドキュメントをコード理解のために活用する先行研究も多く存在する．
-Stack Overflowの投稿にはAPIの使用方法が記述されている事が多いため，ユーザは独自にドキュメントを作成・管理する事なくAPIの使用方法を参照できる可能性がある．
+Stack Overflowの投稿にはAPIの使用方法が記述されていることが多いため，ユーザは独自にドキュメントを作成・管理することなくAPIの使用方法を参照できる可能性がある．
 そこで，Subramanianら~\cite{Live_in_Documentation}はAPIとStack Overflow上の投稿のコード例を紐付けるアルゴリズムを実装した．
-またDekelとHerbsleb~\cite{Improving_API_Documentation_Usability_with_Knowledge_Pushing}は，膨大なドキュメントからコード理解において重要な情報を抽出することでコード変更のデバッグの成功率を改善できる事を示した．
+またDekelとHerbsleb~\cite{Improving_API_Documentation_Usability_with_Knowledge_Pushing}は，膨大なドキュメントからコード理解において重要な情報を抽出することでコード変更のデバッグの成功率を改善できることを示した．
 さらにTreudeら\cite{Augmenting_API_Documentation}は，教師あり学習を用いてStack Overflowから現在のドキュメントには含まれていない情報を抽出する手法を実装し，教師なし学習を用いた手法と比較してより多くの有用な情報をStack Overflowから抽出できることが明らかとなった．
 
 % Research has also explored systems to encourage \textit{in-situ} use of existing documentation.
@@ -126,10 +126,10 @@ Stack Overflowの投稿にはAPIの使用方法が記述されている事が多
 % 先行研究では，ソースコードの変更の推移を可視化する手法についても広く調査されている．
 % Girbaらによるコード変更可視化システム~\cite{How_developers_drive_software_evolution}は，トラブルの原因となるコードに変更を行った開発者の同定を効率的に支援する．
 % Wittenhagenら~\cite{Chronicler}が開発したChroniclerではChroniclerはソースコードの推移を表すツリー状のグラフを通じて，ソースコードの過去の変更をインタラクティブに調査することを可能とする．
-% 一方でBragdonら~\cite{Code_Bubbles}は，コードを関数などの意味のある断片に分割し，バブル状にコード断片を可視化する事ができるシステムを開発した．
-% この可視化を使用する事でユーザは，ソースコード全体から目的の関数に到達するための時間を短縮する事が可能となる．
+% 一方でBragdonら~\cite{Code_Bubbles}は，コードを関数などの意味のある断片に分割し，バブル状にコード断片を可視化することができるシステムを開発した．
+% この可視化を使用することでユーザは，ソースコード全体から目的の関数に到達するための時間を短縮することが可能となる．
 % また，McMillanら~\cite{Portfolio:_Finding_Relevant_Functions_and_Their_Usage}は関数の定義と使用箇所を検索し特定するPortfolioというシステムを開発した．
-% Portfolioは関数とその呼び出しをネットワーク状に可視化する事ができる．
+% Portfolioは関数とその呼び出しをネットワーク状に可視化することができる．
 
 % % Researchers have also investigated interactive visualization to explore the context and usage of code.
 % % Girba et al.~\cite{How_developers_drive_software_evolution} developed Ownership Map visualization which illustrates when and how contributors have engaged in a project.

@@ -7,8 +7,8 @@
 
 \subsection{LHDiffの改良方法}
 CodeGlassのサーバは，ユーザが選択したコード断片に関連する過去のコミットを抽出する必要がある．
-gitのコマンドであるblameを使う事で，コード断片を最後に変更したコミットを特定する事ができる．
-しかし，gitのコマンドではコード断片が過去のバージョンにおけるソースコードのどこに存在するのかを知る事ができない．
+gitのコマンドであるblameを使うことで，コード断片を最後に変更したコミットを特定することができる．
+しかし，gitのコマンドではコード断片が過去のバージョンにおけるソースコードのどこに存在するのかを知ることができない．
 したがって，ユーザが選択したコード断片に関連する過去のコミットを最新のものだけでなく全て抽出するためには，選択されたコード断片が過去のバージョンにおいてどこに存在するのかを特定する必要がある．
 %以上の手法を実装するために，我々はサーバ上のアルゴリズムについて次の３つの要件を設けた．
 
@@ -29,10 +29,10 @@ gitのコマンドであるblameを使う事で，コード断片を最後に変
 % \setlength{\parskip}{1mm}
 % \setlength{\leftskip}{4mm}
 % \setlength{\itemsep}{0cm}
-% \item[DC-1.] 選択されたコード断片が過去のバージョンに含まれる場合，その位置を正確に特定する事．
+% \item[DC-1.] 選択されたコード断片が過去のバージョンに含まれる場合，その位置を正確に特定すること．
 % %\item[DC-2.] Run in real time regardless of the project scale and code length as well as the size of a code piece.
-% \item[DC-2.] プログラミング言語（スタイルシートや設定ファイルを含む）に依存する事なく動作する事．
-% \item[DC-3.] コードの行単位の粒度で動作する事．
+% \item[DC-2.] プログラミング言語（スタイルシートや設定ファイルを含む）に依存することなく動作すること．
+% \item[DC-3.] コードの行単位の粒度で動作すること．
 % \end{itemize}
 
 % \begin{itemize}
@@ -123,19 +123,19 @@ gitのコマンドであるblameを使う事で，コード断片を最後に変
 % \koji{}{If we have anything besides LHDiff to be discussed, add it here and explain why we don't use it.}
 
 先行研究では，コード断片を過去のバージョンの中で追跡する手法が提案されており，それらをCodeGlassのサーバのアルゴリズムとして活用できる可能性がある．
-% 例えばSpaccoとWilliams~\cite{SDiff}が実装したSDiffというアルゴリズムは，抽象構文木を用いてコードを解析する事で，コード断片を過去のバージョンの中で追跡する事ができる．
-% しかし，SDiffが動作するためには構文解析を行う必要があるため，DC-2を満たす事が出来ない．
+% 例えばSpaccoとWilliams~\cite{SDiff}が実装したSDiffというアルゴリズムは，抽象構文木を用いてコードを解析することで，コード断片を過去のバージョンの中で追跡することができる．
+% しかし，SDiffが動作するためには構文解析を行う必要があるため，DC-2を満たすことが出来ない．
 Asaduzzamanら~\cite{LHDiff}が開発したLHDiffは，プログラミング言語非依存で動作するコード断片追跡アルゴリズムである．
 LHDiffはword-level fuzzy matching~\cite{sankoff1983time}を用いて$CP_{S}$と$\widehat{CP_T}$との文字列的類似度を計算し，最も類似度が高かったものを$CP_{T}$として決定する．
-%LHDiffは要件DC-2とDC-3を満たしており，かつ評価実験ではその他のコード断片追跡アルゴリズムよりも正確であった事から，要件DC-1も満たしている．
+%LHDiffは要件DC-2とDC-3を満たしており，かつ評価実験ではその他のコード断片追跡アルゴリズムよりも正確であったことから，要件DC-1も満たしている．
 
 % 過去のバージョン内でコード断片を追跡するアルゴリズムに関する先行研究が複数存在する．
-% SpaccoとWilliams~\cite{SDiff}が実装したSDiffというアルゴリズムは，抽象構文木を用いてコード断片を追跡する事ができる．
+% SpaccoとWilliams~\cite{SDiff}が実装したSDiffというアルゴリズムは，抽象構文木を用いてコード断片を追跡することができる．
 % SDiffが動作するためには構文解析を行う必要があるため，プログラミング言語に依存する．
 % 一方でAsaduzzamanら~\cite{LHDiff}が開発したLHDiffは，プログラミング言語非依存で動作するコード断片追跡アルゴリズムである．
-% LHDiffは\shibato{fuzzy string matching}{日本語にする必要ある？}を使用しコード断片と$\widehat{CP_T}$の候補との文字列的類似度をそれぞれ計算する事で，$\widehat{CP_T}$を推定する．
+% LHDiffは\shibato{fuzzy string matching}{日本語にする必要ある？}を使用しコード断片と$\widehat{CP_T}$の候補との文字列的類似度をそれぞれ計算することで，$\widehat{CP_T}$を推定する．
 % そして最も類似度が高かったコード断片を$\widehat{CP_T}$として決定する．
-% LHDiffは要件DC-2とDC-3満たしており，かつAsaduzzamanらによる評価実験ではその他のコード断片追跡アルゴリズムよりも正確であった事から，要件DC-1も満たしている．
+% LHDiffは要件DC-2とDC-3満たしており，かつAsaduzzamanらによる評価実験ではその他のコード断片追跡アルゴリズムよりも正確であったことから，要件DC-1も満たしている．
 
 % There exist different algorithms for backtracking code changes across revisions.
 % SDiff developed by Spacco and Williams~\cite{SDiff} uses abstract syntac trees for backtracking.
@@ -146,10 +146,10 @@ LHDiffはword-level fuzzy matching~\cite{sankoff1983time}を用いて$CP_{S}$と
 % This algorithm satisfies DC-2 and DC-3.
 % In addition, their evaluation showed that LHDiff achieves a high accuracy performance compared to other code tracking techniques and thus meets DC-1.
 
-しかし我々がLHDiffの事前調査を行った結果，コード変更が構造的変更（関数の統合や分裂，リファクタリングなど）を含む場合，LHDiffはコード断片の追跡に失敗する事が分かった．
+しかし我々がLHDiffの事前調査を行った結果，コード変更が構造的変更（関数の統合や分裂，リファクタリングなど）を含む場合，LHDiffはコード断片の追跡に失敗することが分かった．
 この原因は，LHDiffでは$CP_T$が一つしか存在しないと仮定されているからである．
 実際のコード変更履歴では，被選択コード断片が過去のバージョンにおいて他のコード断片と統合されていたり，分割されて実装されていたりする可能性がある．
-特に大規模なソフトウェア開発プロジェクトでは，ソースコードの構造的変更が繰り返し行われる事が多いため，LHDiffをそのままCodeGlassのサーバに実装すると，CodeGlassの実用性が制限されてしまう．
+特に大規模なソフトウェア開発プロジェクトでは，ソースコードの構造的変更が繰り返し行われることが多いため，LHDiffをそのままCodeGlassのサーバに実装すると，CodeGlassの実用性が制限されてしまう．
 そこで我々は新たにgraceful matchingを提案し，LHDiffに導入することでこの問題を解決することを試みた．
 
 % However, our pilot study on the na\"{i}ve LHDiff method found that it fails to backtrack when revisions involve structural changes (e.g., merge and refactoring) because it assumes that the number of $CP_T$ is always one.
@@ -158,14 +158,14 @@ LHDiffはword-level fuzzy matching~\cite{sankoff1983time}を用いて$CP_{S}$と
 
 
 LHDiffは$CP_T$が常に一つであるという仮説の下，最も文字列的類似度が高いコード断片を$\widehat{CP_T}$として決定する．
-我々は新たに，正解目的コード断片が一つに定まる可能性が高い事を示す閾値であるDMT（Definitive Matching Threshold）を導入した．
+我々は新たに，正解目的コード断片が一つに定まる可能性が高いことを示す閾値であるDMT（Definitive Matching Threshold）を導入した．
 $CP_{S}$と$\widehat{CP_T}$の候補の文字列的類似度がDMTよりも高かった場合，LHDiffと同様に$\widehat{CP_T}$を決定する．
-しかし，過去にソースコードの構造的な変更や大規模な修正が行われていると，文字列的類似度が低くなり，$CP_{T}$を正確に一意に推測する事が難しくなる．
+しかし，過去にソースコードの構造的な変更や大規模な修正が行われていると，文字列的類似度が低くなり，$CP_{T}$を正確に一意に推測することが難しくなる．
 そこで，別の閾値であるCMT（Candidate Matching Threshold）を導入する．
 DMTを上回る$\widehat{CP_T}$が存在しなかった場合，CMTを上回るコード断片を全て，$CP_{T}$である可能性があるとしてインターフェースに返す．
 CodeGlassのインターフェースは，それらのコード断片を含むコミットを図~\ref{fig:WebInterface}a~(3)のように表示する．
-ユーザはそのコミットをクリックして過去のバージョンにおけるソースコードを確認し，$CP_S$として選択し直す事で，引き続きコード断片の調査を継続する事ができる．
-% ユーザはそのコミットをクリックして過去のバージョンにおけるソースコードを確認し，\sakaguchi{$CP_{T}$を特定してから}{ユーザが正解目的コード断片を特定するというのに違和感を覚えます…CPtはあくまで学習におけるシンボルな気がします}それを$CP_S$として選択し直す事で，引き続きコード断片の調査を継続する事ができる．
+ユーザはそのコミットをクリックして過去のバージョンにおけるソースコードを確認し，$CP_S$として選択し直すことで，引き続きコード断片の調査を継続することができる．
+% ユーザはそのコミットをクリックして過去のバージョンにおけるソースコードを確認し，\sakaguchi{$CP_{T}$を特定してから}{ユーザが正解目的コード断片を特定するというのに違和感を覚えます…CPtはあくまで学習におけるシンボルな気がします}それを$CP_S$として選択し直すことで，引き続きコード断片の調査を継続することができる．
 
 % The na\"{i}ve LHDiff method determines $\widehat{CP_T}$ as a code piece with the highest similarity under an assumption that the number of $CP_T$ is always one.
 % We introduce a threshold (Definitive Matching Threshold, DMT) to determine if there exists a single possible target code piece with strong belief.
@@ -175,7 +175,7 @@ CodeGlassのインターフェースは，それらのコード断片を含む�
 
 
 DMTとCMTの二つの閾値を設定するために，Chart.jsのリポジトリに含まれる49個のコミットにおける，変更前と変更後のコード断片の一対をデータセットとして構築した．
-このデータセットではLHDiffだけでは$CP_{T}$を特定する事が難しい構造的変更からなるコミットのみを意図的に選定した．
+このデータセットではLHDiffだけでは$CP_{T}$を特定することが難しい構造的変更からなるコミットのみを意図的に選定した．
 そして，それぞれのコード断片に対して$CP_S$を選択し，それに対応する$CP_T$のラベル付けを行った．
 % そして，それぞれのコード断片に対して\sakaguchi{$CP_S$}{そういえば学習におけるCPsはどう決めるんでしょう？}と$CP_T$のラベル付けを行った．
 さらに，$CP_T$と最も文字列的類似度の高い，$CP_T$ではないコード断片を$IM$（incorrect match）としてラベル付けした．
@@ -189,8 +189,8 @@ DMTとCMTの二つの閾値を設定するために，Chart.jsのリポジトリ
 % We also chose a code piece which was a disjoint set of $CP_T$ and exhibited the highest similarity as the most similar incorrect match ($IM$).
 
 図~\ref{fig:histogram_sim}に$CP_T$（青）と$IM$（橙）の文字列的類似度の分布を示す．
-この分布から$IM$の類似度は0.65未満である事が分かる．
-また，$CP_T$の類似度は0.4より大きい事も分かる．
+この分布から$IM$の類似度は0.65未満であることが分かる．
+また，$CP_T$の類似度は0.4より大きいことも分かる．
 したがって我々は，DMTを0.65に，CMTを0.4に設定した．
 
 % Figure~\ref{fig:histogram_sim} shows the distributions of similarity scores of $CP_T$ (in blue) and $IM$ (in pale orange).
@@ -213,7 +213,7 @@ DMTとCMTの二つの閾値を設定するために，Chart.jsのリポジトリ
 % \shibato{graceful matching}{}は，追加でCMTを上回る正解目的コード断片の可能性があるコード断片を探索する．
 % コード断片がコミットにおいて別ファイルへ移動した可能性も考慮して，\shibato{graceful matching}{}は変更のあった全てのファイルを探索する．
 % そして見つかった正解目的コード断片の可能性があるコード断片を文字列的類似度順に並び替える．
-% 次にそれらのコード断片が互いに排他的である事を確認してから，インターフェースに返す．
+% 次にそれらのコード断片が互いに排他的であることを確認してから，インターフェースに返す．
 % インターフェース上では正解目的コード断片の可能性があるコード断片はFigure~\ref{fig:WebInterface}a（２）のように示される．
 
 % With graceful matching, the algorithm additionally searches all possible code pieces with the similarity scores above CMT after backtracking.

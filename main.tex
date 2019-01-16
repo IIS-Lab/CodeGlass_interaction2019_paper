@@ -107,6 +107,7 @@
 \setcounter{号数}{10}
 \setcounter{page}{1}
 
+\setlength\textfloatsep{3pt}
 
 \begin{document}
 
@@ -115,7 +116,8 @@
 
 % \etitle{CodeGlass: Interactive Piece-level Code Examination Using GitHub Pull Requests}
 
-\affiliate{UT}{東京大学\\
+\affiliate{UT}{IIS-Lab\\
+東京大学\\
 The University of Tokyo\\
 7-3-1 Hongo, Bunkyo-ku, Tokyo 113-0033, Japan}
 
@@ -132,7 +134,7 @@ The University of Tokyo\\
 ソフトウェア開発においてソースコードの理解は必要不可欠である．
 特に，実際の開発においてはコードの一部分（コード断片）の理解が必要となることが多い．
 我々が行ったインタビュー調査では，GitHubのプルリクエストの説明文とコメントに，コード理解において有用な情報が含まれていることが明らかとなった．
-しかし既存のシステムでは，プルリクエストがコード断片の理解支援のためには十分に活用されていない．
+しかし既存のシステムでは，コード断片の理解支援のためにプルリクエストが十分に活用されていない．
 そこで我々は，ユーザが選択したコード断片に関連する過去のプルリクエストを抽出し，ユーザに提供するCodeGlassを開発した．
 CodeGlassでは，プルリクエストの説明文を解析し，実装内容や開発背景に関する文章をインターフェース上で強調して表示することが可能となっている．
 CodeGlassのアルゴリズムにより，選択されたコード断片が過去のバージョンにおいて分裂していた場合にも，関連する過去のプルリクエストをユーザに提供することができる．
