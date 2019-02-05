@@ -1,3 +1,4 @@
+
 % ipsj.cls  (C) 2012 Information Processing Society of Japan
 % Copyright (C) 1995-2010 by Hiroshi Nakashima, Yasuki Saito and
 %                            The Editorial Board of the IPSJ Journal

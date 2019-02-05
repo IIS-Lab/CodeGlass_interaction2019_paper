@@ -6,8 +6,8 @@
 %% [noauthor]
 %%
 
-% \documentclass[submit,techrep]{ipsj}
-\documentclass[submit,techrep,noauthor]{ipsj}
+\documentclass[submit,techrep]{ipsj}
+% \documentclass[submit,techrep,noauthor]{ipsj}
 
 % for Overleaf
 \usepackage[ipaex]{pxchfon}
@@ -107,6 +107,14 @@
 \setcounter{号数}{10}
 \setcounter{page}{1}
 
+% インタラクション特有の設定。印刷工程で柱・ノンブルの埋め込みを行う。
+\makeatletter
+\pagestyle{empty}
+\def\@oddhead{}%
+\def\@evenhead{}%
+\def\ps@IPSJTITLEheadings{}
+\makeatother
+
 \setlength\textfloatsep{3pt}
 
 \begin{document}
@@ -145,9 +153,9 @@ CodeGlassのアルゴリズムにより，選択されたコード断片が過�
 \end{abstract}
 
 
-\begin{jkeyword}
-コード理解，コード断片，GitHub，プルリクエスト，git
-\end{jkeyword}
+% \begin{jkeyword}
+% コード理解，コード断片，GitHub，プルリクエスト，git
+% \end{jkeyword}
 
 % \begin{eabstract}
 % Understanding source code is fundamental in software development.
